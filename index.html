@@ -91,7 +91,7 @@
 
     <div id="holoTooltipBox" class="holo-tooltip shadow-2xl hidden md:block"></div>
 
-    <!-- LOADER: Kucing Dokter Cantik & Jenaka -->
+    <!-- LOADER -->
     <div id="startupLoader" class="fixed inset-0 z-[9999] bg-[#020714] flex flex-col items-center justify-center overflow-hidden font-tech transition-all duration-700">
         <div class="absolute inset-0 screensaver-grid opacity-50 pointer-events-none"></div>
         <div class="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-pink-500 to-transparent opacity-40 sc-scanline-animation pointer-events-none"></div>
@@ -107,7 +107,6 @@
                         <polygon points="80,45 95,5 55,25" fill="#f8fafc" stroke="#ec4899" stroke-width="2"/>
                         <polygon points="78,38 88,12 62,26" fill="#fbcfe8"/>
                     </g>
-                    
                     <circle cx="50" cy="55" r="40" fill="#f8fafc" stroke="#06b6d4" stroke-width="2.5"/>
                     <path d="M 50 15 Q 40 5 30 15 Q 40 25 50 15 Z" fill="#ec4899"/>
                     <path d="M 50 15 Q 60 5 70 15 Q 60 25 50 15 Z" fill="#ec4899"/>
@@ -118,7 +117,6 @@
                         <circle cx="50" cy="30" r="5" fill="#020617"/>
                         <circle cx="45" cy="25" r="3" fill="#ffffff"/> 
                     </g>
-
                     <g class="eye-left">
                         <ellipse cx="35" cy="52" rx="6" ry="8" fill="#020617"/>
                         <circle cx="33" cy="49" r="2.5" fill="#ffffff"/>
@@ -131,7 +129,6 @@
                         <path d="M 72 46 Q 70 42 65 44" fill="none" stroke="#020617" stroke-width="2" stroke-linecap="round"/>
                         <path d="M 72 46 L 76 42 M 70 44 L 73 38" fill="none" stroke="#020617" stroke-width="1.5" stroke-linecap="round"/>
                     </g>
-
                     <ellipse cx="25" cy="62" rx="8" ry="5" fill="#f472b6" opacity="0.8"/>
                     <ellipse cx="75" cy="62" rx="8" ry="5" fill="#f472b6" opacity="0.8"/>
                     <polygon points="47,60 53,60 50,64" fill="#f472b6"/>
@@ -223,7 +220,7 @@
                 <button type="button" onclick="openHelpModal()" class="bg-slate-800 hover:bg-slate-700 text-white text-[10px] md:text-sm font-mono font-black px-3 md:px-4 py-2 md:py-2.5 rounded-xl border-2 border-[var(--border-color)] transition-all flex items-center justify-center gap-1.5 flex-1 md:flex-none shadow-md custom-holo-trigger" data-holo="Lihat metrik analisis pakar beserta daftar diagnosis dan grafiknya.">
                     <i class="fa-solid fa-chart-bar text-cyan-400"></i> <span>HELP SYSTEM</span>
                 </button>
-                <button type="button" onclick="openCreatorModal()" class="bg-slate-800 hover:bg-slate-700 text-white text-[10px] md:text-sm font-mono font-black px-3 md:px-4 py-2 md:py-2.5 rounded-xl border-2 border-[var(--border-color)] transition-all flex items-center justify-center gap-1.5 flex-1 md:flex-none shadow-md custom-holo-trigger" data-holo="Identitas Pengembang: Menampilkan profil Mohamad Hartadi (Adi), tautan blog, dan kontak WhatsApp.">
+                <button type="button" onclick="openCreatorModal()" class="bg-slate-800 hover:bg-slate-700 text-white text-[10px] md:text-sm font-mono font-black px-3 md:px-4 py-2 md:py-2.5 rounded-xl border-2 border-[var(--border-color)] transition-all flex items-center justify-center gap-1.5 flex-1 md:flex-none shadow-md custom-holo-trigger" data-holo="Identitas Pengembang: Menampilkan profil Mohamad Hartadi, tautan blog, dan kontak WhatsApp.">
                     <i class="fa-solid fa-user-astronaut text-pink-400"></i> <span>KRIDIT</span>
                 </button>
             </div>
@@ -239,6 +236,10 @@
                             <button onclick="switchTab('dashboard', this)" class="nav-btn whitespace-nowrap flex-shrink-0 lg:w-full text-left px-4 py-2.5 md:py-3 rounded-xl bg-cyan-600 text-white flex items-center justify-between transition-colors shadow-md">
                                 <span><i class="fa-solid fa-chart-pie mr-2 w-4 text-center"></i> Dasbor Utama</span>
                             </button>
+                            <!-- Tab Baru: Kelola Pasien -->
+                            <button onclick="switchTab('pasien', this)" class="nav-btn whitespace-nowrap flex-shrink-0 lg:w-full text-left px-4 py-2.5 md:py-3 rounded-xl text-[var(--text-main)] hover:bg-cyan-500/10 flex items-center justify-between transition-colors border border-transparent custom-holo-trigger" data-holo="Registrasi Pasien, Lihat Riwayat Berobat, dan Daftar Penyakit Pasien.">
+                                <span><i class="fa-solid fa-users-viewfinder mr-2 w-4 text-center text-amber-400"></i> Kelola Pasien</span>
+                            </button>
                             <button onclick="switchTab('diagnosis', this)" class="nav-btn whitespace-nowrap flex-shrink-0 lg:w-full text-left px-4 py-2.5 md:py-3 rounded-xl text-[var(--text-main)] hover:bg-cyan-500/10 flex items-center justify-between transition-colors border border-transparent custom-holo-trigger" data-holo="Mulai proses pakar: Pilih gejala klinis yang dialami untuk mendapatkan diagnosis penyakit gigi.">
                                 <span><i class="fa-solid fa-stethoscope mr-2 w-4 text-center text-pink-500"></i> Mulai Diagnosis</span>
                             </button>
@@ -248,8 +249,8 @@
                     <div class="hidden lg:block bg-[var(--bg-input)] p-4 rounded-xl border-2 border-[var(--border-color)] text-xs font-mono text-[var(--text-main)] space-y-3 leading-relaxed shadow-md">
                         <span class="font-black text-pink-500 block text-sm border-b border-slate-700 pb-1.5 uppercase"><i class="fa-solid fa-bolt mr-1"></i> Quick Tips:</span>
                         <div class="space-y-3 text-justify font-sans font-medium">
-                            <p class="border-l-2 border-pink-500 pl-2">Gunakan <span class="text-pink-400 font-bold">DentBot</span> di sudut kanan bawah untuk berinteraksi langsung mengenai keluhan gigi Anda.</p>
-                            <p class="border-l-2 border-cyan-500 pl-2">SMILE SYIFA AI menggunakan algoritma *Forward Chaining* berdasarkan basis pengetahuan medis.</p>
+                            <p class="border-l-2 border-pink-500 pl-2">Gunakan <span class="text-pink-400 font-bold">DentBot</span> di sudut kanan bawah untuk berinteraksi langsung.</p>
+                            <p class="border-l-2 border-cyan-500 pl-2">Sistem menyimpan rekam medis diagnosis secara otonom dalam basis data *Local Storage*.</p>
                         </div>
                     </div>
                 </div>
@@ -264,19 +265,35 @@
                         <h2 class="text-base sm:text-lg md:text-2xl font-tech font-black text-[var(--text-main)] uppercase tracking-widest truncate">SISTEM INFORMASI</h2>
                     </div>
 
+                    <!-- Statistik Card (New) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                        <div class="border-2 border-cyan-500/40 p-4 md:p-5 rounded-xl bg-gradient-to-br from-slate-900 to-slate-950 text-center relative overflow-hidden shadow-inner custom-holo-trigger" data-holo="Jumlah profil pasien yang terdaftar.">
+                            <i class="fa-solid fa-hospital-user text-5xl md:text-6xl mb-2 opacity-20 absolute -right-3 -bottom-3 text-cyan-400"></i>
+                            <h3 class="text-xs md:text-sm font-mono font-bold text-slate-400 uppercase tracking-widest">Total Pasien</h3>
+                            <p id="dash-total-patient" class="text-3xl md:text-4xl font-tech font-black text-cyan-400 mt-2 filter drop-shadow-[0_0_10px_rgba(6,182,212,0.8)]">0</p>
+                        </div>
+                        <div class="border-2 border-pink-500/40 p-4 md:p-5 rounded-xl bg-slate-950 text-center shadow-inner flex flex-col justify-center relative overflow-hidden">
+                            <i class="fa-solid fa-clipboard-list text-5xl md:text-6xl mb-2 opacity-10 absolute -right-3 -bottom-3 text-pink-400"></i>
+                            <h3 class="text-xs md:text-sm font-mono font-bold text-slate-400 uppercase tracking-widest">Riwayat Diagnosis</h3>
+                            <p id="dash-total-diag" class="text-3xl md:text-4xl font-tech font-black text-pink-400 mt-2 filter drop-shadow-[0_0_10px_rgba(236,72,153,0.8)]">0</p>
+                        </div>
+                        <div class="hidden lg:flex border-2 border-emerald-500/40 p-4 rounded-xl bg-slate-950 text-center shadow-inner flex-col justify-center">
+                            <h3 class="text-xs md:text-sm font-mono font-bold text-slate-400 uppercase tracking-widest">Algoritma</h3>
+                            <p class="text-sm md:text-lg font-tech font-black text-emerald-400 mt-2"><i class="fa-solid fa-microchip"></i> Forward Chaining</p>
+                        </div>
+                    </div>
+
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-                        <!-- Info Panel -->
                         <div class="bg-slate-900/80 p-4 md:p-5 rounded-xl border border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.1)] custom-holo-trigger" data-holo="Informasi aplikasi medis ini.">
                             <h3 class="text-base md:text-lg font-tech font-black text-cyan-400 mb-2 md:mb-3 border-b border-slate-700 pb-2"><i class="fa-solid fa-circle-info mr-2"></i> PANDUAN PENGGUNAAN</h3>
                             <ul class="space-y-2.5 md:space-y-3 text-[11px] md:text-sm font-mono text-slate-300 mt-3 md:mt-4">
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-pink-400 mt-0.5"></i> <span><b>Mulai Diagnosis:</b> Klik tab 'Mulai Diagnosis' di panel navigasi kiri.</span></li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-pink-400 mt-0.5"></i> <span><b>Pilih Gejala:</b> Centang semua gejala spesifik yang Anda rasakan pada area gigi atau gusi.</span></li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-pink-400 mt-0.5"></i> <span><b>Analisis Mesin:</b> Sistem pakar akan mengkalkulasi persentase *Certainty Factor* penyakit Anda lengkap dengan animasinya.</span></li>
-                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-pink-400 mt-0.5"></i> <span><b>Metrik Pakar:</b> Anda juga dapat menekan tombol <b>HELP SYSTEM</b> di atas untuk meninjau seluruh matriks probabilitas dasar.</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-pink-400 mt-0.5"></i> <span><b>Daftar Pasien:</b> Tambahkan pasien baru di menu "Kelola Pasien" sebelum mendiagnosis.</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-pink-400 mt-0.5"></i> <span><b>Diagnosis:</b> Pilih nama pasien, centang gejala, dan klik Proses.</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-pink-400 mt-0.5"></i> <span><b>Simpan & WA:</b> Pada hasil diagnosis, Anda bisa menyimpan riwayatnya langsung ke pasien dan membagikan hasilnya via WhatsApp.</span></li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-angle-right text-pink-400 mt-0.5"></i> <span><b>Metrik Pakar:</b> Tekan tombol <b>HELP SYSTEM</b> untuk meninjau matriks probabilitas dasar kepakaran gigi.</span></li>
                             </ul>
                         </div>
 
-                        <!-- Kridit Programmer -->
                         <div class="bg-slate-900/80 p-4 md:p-5 rounded-xl border border-pink-500/50 shadow-[0_0_15px_rgba(236,72,153,0.1)] relative overflow-hidden custom-holo-trigger" data-holo="Data profil arsitek sistem yang merancang antarmuka ini.">
                             <div class="absolute -right-2 -bottom-4 md:-right-4 md:-bottom-4 opacity-10"><i class="fa-solid fa-code text-7xl md:text-8xl text-pink-500"></i></div>
                             <h3 class="text-base md:text-lg font-tech font-black text-pink-400 mb-2 md:mb-3 border-b border-slate-700 pb-2 relative z-10"><i class="fa-solid fa-laptop-code mr-2"></i> KRIDIT PROGRAMMER</h3>
@@ -302,14 +319,79 @@
                     </div>
                 </div>
 
+                <!-- TAB KELOLA PASIEN (NEW) -->
+                <div id="tab-pasien" class="tab-content hidden-ui flex-1 flex flex-col h-full animate-fade-in overflow-hidden">
+                    <div class="flex items-center gap-2 mb-3 md:mb-4 border-b border-amber-500/50 pb-2 md:pb-3 shrink-0">
+                        <i class="fa-solid fa-users-viewfinder text-amber-400 text-xl md:text-2xl"></i>
+                        <h2 class="text-base sm:text-lg md:text-xl font-tech font-black text-amber-400 uppercase tracking-widest">MANAJEMEN PASIEN</h2>
+                    </div>
+
+                    <!-- Form Input Pasien -->
+                    <div class="bg-slate-900 p-3 md:p-4 rounded-xl border border-slate-700 mb-4 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-3 font-mono text-[11px] md:text-xs shadow-inner shrink-0">
+                        <input type="hidden" id="p-tracker-id">
+                        
+                        <div class="flex flex-col md:col-span-1">
+                            <label class="text-slate-400 font-bold mb-1">ID (Otomatis/Manual)</label>
+                            <input type="text" id="p-id" placeholder="P-XXXX" class="w-full p-2 bg-slate-950 border border-slate-600 rounded-lg text-white focus:border-pink-500 outline-none">
+                        </div>
+                        <div class="flex flex-col md:col-span-2">
+                            <label class="text-slate-400 font-bold mb-1">Nama Lengkap Pasien</label>
+                            <input type="text" id="p-nama" placeholder="Contoh: Budi Santoso" class="w-full p-2 bg-slate-950 border border-slate-600 rounded-lg text-white focus:border-pink-500 outline-none">
+                        </div>
+                        <div class="flex flex-col md:col-span-1">
+                            <label class="text-slate-400 font-bold mb-1">Usia (Tahun)</label>
+                            <input type="number" id="p-usia" placeholder="25" class="w-full p-2 bg-slate-950 border border-slate-600 rounded-lg text-white focus:border-pink-500 outline-none">
+                        </div>
+                        <div class="flex flex-col md:col-span-1">
+                            <label class="text-slate-400 font-bold mb-1">Gender</label>
+                            <select id="p-gender" class="w-full p-2 bg-slate-950 border border-slate-600 rounded-lg text-white focus:border-pink-500 outline-none">
+                                <option value="L">Laki-laki</option><option value="P">Perempuan</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col md:col-span-2">
+                            <label class="text-slate-400 font-bold mb-1">Nomor WhatsApp</label>
+                            <input type="text" id="p-wa" placeholder="08xxxxxxxxxx" class="w-full p-2 bg-slate-950 border border-slate-600 rounded-lg text-white focus:border-pink-500 outline-none">
+                        </div>
+                        <div class="flex flex-col justify-end md:col-span-1">
+                            <button onclick="savePatient()" class="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-tech font-black tracking-widest py-2 rounded-lg transition-all shadow-md">SIMPAN PROFIL</button>
+                        </div>
+                    </div>
+
+                    <!-- Tabel Pasien -->
+                    <div class="overflow-x-auto w-full flex-1 bg-slate-950 border border-slate-700 rounded-xl">
+                        <table class="w-full text-left border-collapse text-[11px] md:text-sm font-mono min-w-[650px]">
+                            <thead class="bg-slate-900 border-b-2 border-amber-500 text-slate-300">
+                                <tr>
+                                    <th class="p-2 md:p-3 whitespace-nowrap">ID Reg</th>
+                                    <th class="p-2 md:p-3">Nama Pasien / No. WA</th>
+                                    <th class="p-2 md:p-3 whitespace-nowrap">Usia/Gen</th>
+                                    <th class="p-2 md:p-3 whitespace-nowrap">Kunjungan Terakhir</th>
+                                    <th class="p-2 md:p-3 text-center whitespace-nowrap">Aksi & Rekam Medis</th>
+                                </tr>
+                            </thead>
+                            <tbody id="patient-table-body" class="text-slate-100 align-middle">
+                                <!-- Terinjeksi melalui JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
                 <!-- TAB DIAGNOSIS -->
-                <div id="tab-diagnosis" class="tab-content hidden-ui flex-1 flex flex-col h-full">
-                    <div class="flex items-center gap-2 border-b border-pink-500/50 pb-2 md:pb-3 mb-3 md:mb-4">
-                        <h2 class="text-base md:text-xl font-tech font-black uppercase text-pink-400"><i class="fa-solid fa-list-check mr-2"></i> Pilihan Gejala Klinis</h2>
+                <div id="tab-diagnosis" class="tab-content hidden-ui flex-1 flex flex-col h-full animate-fade-in">
+                    <div class="flex items-center gap-2 border-b border-pink-500/50 pb-2 md:pb-3 mb-3 md:mb-4 shrink-0">
+                        <h2 class="text-base md:text-xl font-tech font-black uppercase text-pink-400"><i class="fa-solid fa-list-check mr-2"></i> Modul Inferensi Gejala</h2>
+                    </div>
+
+                    <!-- Pilih Pasien Target -->
+                    <div class="bg-slate-900 p-3 md:p-4 rounded-xl border border-cyan-500/30 mb-4 shrink-0 shadow-inner">
+                        <label class="text-cyan-400 font-bold mb-2 uppercase tracking-wide block text-xs md:text-sm"><i class="fa-solid fa-user-check mr-1"></i> Pilih Pasien Untuk Diagnosis:</label>
+                        <select id="diag-patient-select" class="w-full p-2.5 bg-slate-950 border-2 border-slate-600 rounded-lg text-white font-bold focus:border-pink-500 outline-none text-xs md:text-sm font-mono">
+                            <!-- Injected by JS -->
+                        </select>
                     </div>
                     
                     <div class="bg-slate-900 p-3 md:p-4 rounded-xl border border-slate-700 font-mono text-[11px] md:text-sm shadow-inner flex-1 overflow-y-auto hide-scrollbar">
-                        <p class="text-slate-400 mb-4 border-l-2 border-cyan-500 pl-2">Pilih (centang) gejala-gejala yang Anda alami saat ini. Anda dapat memilih lebih dari satu gejala untuk dieksekusi oleh mesin inferensi.</p>
+                        <p class="text-slate-400 mb-4 border-l-2 border-pink-500 pl-2">Centang gejala-gejala yang dialami oleh pasien. Anda dapat memilih lebih dari satu gejala untuk dianalisis.</p>
                         
                         <div id="symptoms-container" class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                             <!-- Injected by JS -->
@@ -317,7 +399,7 @@
                     </div>
                     
                     <div class="mt-4 shrink-0 border-t border-slate-700 pt-4">
-                        <button onclick="processDiagnosis()" class="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-tech font-black tracking-widest py-3 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 custom-holo-trigger" data-holo="Jalankan mesin inferensi untuk memproses gejala yang dipilih.">
+                        <button onclick="processDiagnosis()" class="w-full bg-pink-600 hover:bg-pink-500 text-white font-tech font-black tracking-widest py-3 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 custom-holo-trigger" data-holo="Jalankan mesin inferensi untuk memproses gejala yang dipilih.">
                             <i class="fa-solid fa-microchip text-lg"></i> PROSES DIAGNOSIS SEKARANG
                         </button>
                     </div>
@@ -328,13 +410,44 @@
                             <h2 class="text-lg md:text-2xl font-tech font-black text-cyan-400"><i class="fa-solid fa-file-medical-alt mr-2"></i> HASIL ANALISIS PAKAR</h2>
                             <button onclick="closeResult()" class="text-slate-400 hover:text-pink-500 text-2xl font-black">&times;</button>
                         </div>
+                        
                         <div id="diagnosis-output" class="flex-1 text-slate-200 font-mono text-sm md:text-base space-y-4">
                             <!-- Injected by JS -->
                         </div>
-                        <button onclick="closeResult()" class="mt-6 w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white font-tech font-black tracking-widest py-3 rounded-xl transition-all">TUTUP & KEMBALI</button>
+                        
+                        <!-- Aksi Hasil Diagnosis -->
+                        <div class="mt-4 flex flex-col sm:flex-row gap-3 border-t border-slate-800 pt-4">
+                            <button onclick="saveDiagnosisAndSendWA()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-tech font-black tracking-wider py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg">
+                                <i class="fa-brands fa-whatsapp text-xl"></i> SIMPAN KE RIWAYAT & KIRIM WA
+                            </button>
+                            <button onclick="closeResult()" class="w-full sm:w-1/3 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white font-tech font-black tracking-widest py-3 rounded-xl transition-all">TUTUP</button>
+                        </div>
                     </div>
                 </div>
             </section>
+        </div>
+    </div>
+
+    <!-- MODAL HISTORY LOG PASIEN -->
+    <div id="patientHistoryModal" class="hidden fixed inset-0 z-[1060] bg-slate-950/95 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-slate-900 border-2 border-amber-500 rounded-2xl w-full max-w-3xl max-h-[85vh] flex flex-col shadow-[0_0_40px_rgba(245,158,11,0.3)] overflow-hidden">
+            <div class="flex justify-between items-center border-b-2 border-amber-500 p-4 shrink-0 bg-slate-950">
+                <h2 class="text-sm md:text-lg font-tech font-black text-amber-400 flex items-center"><i class="fa-solid fa-notes-medical mr-2"></i> LOG RIWAYAT DIAGNOSIS PASIEN</h2>
+                <button onclick="closePatientHistory()" class="text-slate-400 hover:text-amber-500 text-2xl font-black cursor-pointer px-2">&times;</button>
+            </div>
+            
+            <div class="p-4 bg-slate-900 border-b border-slate-800 shrink-0 font-mono text-xs md:text-sm text-slate-300">
+                <p><b>ID Pasien:</b> <span id="hist-id" class="text-cyan-400 font-bold"></span></p>
+                <p><b>Nama:</b> <span id="hist-nama" class="text-white font-black"></span></p>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-4 bg-slate-950 space-y-3 hide-scrollbar" id="hist-container">
+                <!-- Injected Log Riwayat by JS -->
+            </div>
+            
+            <div class="p-4 bg-slate-900 border-t border-slate-800 shrink-0">
+                <button onclick="closePatientHistory()" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-tech font-black tracking-widest py-2.5 rounded-xl transition-all border border-slate-600">TUTUP LOG</button>
+            </div>
         </div>
     </div>
 
@@ -346,7 +459,7 @@
                 <button onclick="closeHelpModal()" class="text-slate-400 hover:text-pink-500 text-2xl font-black cursor-pointer px-2">&times;</button>
             </div>
             
-            <div class="flex-1 overflow-x-auto p-4 md:p-5 bg-slate-950">
+            <div class="flex-1 overflow-x-auto p-4 md:p-5 bg-slate-950 hide-scrollbar">
                 <table class="w-full text-left border-collapse text-[11px] md:text-sm font-mono min-w-[800px]">
                     <thead class="bg-slate-900 border-b-2 border-pink-500 text-slate-300">
                         <tr>
@@ -369,7 +482,6 @@
 
     <!-- DENTBOT CHAT INTERFACE -->
     <div class="fixed bottom-4 right-4 md:bottom-5 md:right-5 z-[900] flex flex-row items-center gap-2 pointer-events-none font-mono">
-        
         <div id="chatWindow" class="absolute bottom-14 md:bottom-16 right-0 w-[calc(100vw-2rem)] max-w-[380px] sm:w-[400px] h-[75vh] max-h-[600px] bg-slate-900 border-2 border-pink-500 rounded-2xl flex-col hidden overflow-hidden shadow-[0_0_30px_rgba(236,72,153,0.3)] pointer-events-auto">
             
             <div class="bg-gradient-to-b from-slate-950 to-slate-900 p-3 md:p-4 border-b-2 border-pink-500 shadow-md shrink-0 flex flex-col relative">
@@ -384,13 +496,11 @@
                     <button onclick="toggleChatWindow()" class="text-slate-400 hover:text-pink-400 px-2 py-0.5 cursor-pointer font-black text-xl leading-none">&minus;</button>
                 </div>
 
-                <!-- Tampilan Hari & Waktu Besar dan Menarik -->
                 <div class="flex flex-col items-center justify-center mt-3 mb-2 bg-slate-950/60 py-3 rounded-xl border border-slate-800 shadow-inner">
                     <span id="bot-large-time" class="text-3xl md:text-4xl font-black font-tech text-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.8)] tracking-widest">00:00:00</span>
                     <span id="bot-large-day" class="text-[10px] md:text-xs font-bold text-pink-400 uppercase tracking-widest mt-1">Memuat...</span>
                 </div>
 
-                <!-- Tombol Shortcut Programmer -->
                 <div class="flex justify-center mt-1">
                     <button onclick="showProgrammerInfoBot()" class="bg-slate-800 hover:bg-slate-700 border border-pink-500/50 text-[10px] text-pink-300 px-4 py-2 rounded-full flex items-center gap-2 transition-all shadow-md font-bold uppercase tracking-wider cursor-pointer hover:scale-105">
                         <i class="fa-solid fa-user-astronaut text-pink-400 text-sm"></i> Shortcut Programmer
@@ -477,37 +587,18 @@
         ];
 
         const diseasesData = [
-            { 
-                id: 'P01', name: 'Karies Gigi (Gigi Berlubang)', 
-                symptoms: ['G01', 'G02', 'G03', 'G11'], 
-                desc: 'Kerusakan pada struktur gigi (email dan dentin) akibat asam yang dihasilkan oleh bakteri plak.', 
-                solusi: 'Segera ke dokter gigi untuk dilakukan penambalan (restorasi). Kurangi makanan manis dan sikat gigi teratur.' 
-            },
-            { 
-                id: 'P02', name: 'Gingivitis (Radang Gusi)', 
-                symptoms: ['G04', 'G05', 'G06'], 
-                desc: 'Peradangan pada gusi yang umumnya disebabkan oleh penumpukan plak dan karang gigi.', 
-                solusi: 'Perbaiki kebersihan mulut. Lakukan tindakan Scaling (pembersihan karang gigi) di klinik gigi.' 
-            },
-            { 
-                id: 'P03', name: 'Pulpitis (Radang Saraf Gigi)', 
-                symptoms: ['G01', 'G02', 'G07', 'G11'], 
-                desc: 'Peradangan pada pulpa (saraf gigi) karena infeksi karies yang sudah sangat dalam.', 
-                solusi: 'Memerlukan perawatan saluran akar (Endodontik) atau pencabutan jika sudah tidak bisa diselamatkan. Minum analgesik sementara.' 
-            },
-            { 
-                id: 'P04', name: 'Abses Periapikal / Abses Gigi', 
-                symptoms: ['G06', 'G07', 'G08', 'G09'], 
-                desc: 'Kumpulan nanah yang terbentuk di sekitar akar gigi akibat infeksi bakteri akut.', 
-                solusi: 'Tindakan drainase abses oleh dokter gigi, pemberian antibiotik, dan perawatan saluran akar/pencabutan.' 
-            },
-            { 
-                id: 'P05', name: 'Periodontitis (Infeksi Jaringan Penyangga)', 
-                symptoms: ['G04', 'G05', 'G06', 'G10'], 
-                desc: 'Infeksi serius pada gusi yang merusak jaringan lunak dan tulang penyangga gigi.', 
-                solusi: 'Perawatan deep scaling (root planing), operasi flap bila parah. Sangat dianjurkan konsultasi dengan dokter spesialis Periodonsia.' 
-            }
+            { id: 'P01', name: 'Karies Gigi (Gigi Berlubang)', symptoms: ['G01', 'G02', 'G03', 'G11'], desc: 'Kerusakan pada struktur gigi (email dan dentin) akibat asam yang dihasilkan oleh bakteri plak.', solusi: 'Segera ke dokter gigi untuk dilakukan penambalan (restorasi). Kurangi makanan manis dan sikat gigi teratur.' },
+            { id: 'P02', name: 'Gingivitis (Radang Gusi)', symptoms: ['G04', 'G05', 'G06'], desc: 'Peradangan pada gusi yang umumnya disebabkan oleh penumpukan plak dan karang gigi.', solusi: 'Perbaiki kebersihan mulut. Lakukan tindakan Scaling (pembersihan karang gigi) di klinik gigi.' },
+            { id: 'P03', name: 'Pulpitis (Radang Saraf Gigi)', symptoms: ['G01', 'G02', 'G07', 'G11'], desc: 'Peradangan pada pulpa (saraf gigi) karena infeksi karies yang sudah sangat dalam.', solusi: 'Memerlukan perawatan saluran akar (Endodontik) atau pencabutan jika sudah tidak bisa diselamatkan. Minum analgesik sementara.' },
+            { id: 'P04', name: 'Abses Periapikal / Abses Gigi', symptoms: ['G06', 'G07', 'G08', 'G09'], desc: 'Kumpulan nanah yang terbentuk di sekitar akar gigi akibat infeksi bakteri akut.', solusi: 'Tindakan drainase abses oleh dokter gigi, pemberian antibiotik, dan perawatan saluran akar/pencabutan.' },
+            { id: 'P05', name: 'Periodontitis (Infeksi Jaringan Penyangga)', symptoms: ['G04', 'G05', 'G06', 'G10'], desc: 'Infeksi serius pada gusi yang merusak jaringan lunak dan tulang penyangga gigi.', solusi: 'Perawatan deep scaling (root planing), operasi flap bila parah. Sangat dianjurkan konsultasi dengan dokter spesialis Periodonsia.' }
         ];
+
+        // LOCAL DB ARRAY PASIEN
+        let patientDB = JSON.parse(localStorage.getItem('SMILE_SYIFA_DB')) || [];
+        
+        // VARIABEL GLOBAL UNTUK TEMPORARY HASIL DIAGNOSIS SEBELUM DISIMPAN
+        let currentDiagnosisResult = null; 
 
         let isScreensaverActive = false;
         let systemIdleTimeSeconds = 0;
@@ -517,6 +608,9 @@
             runTimeSynchronization();
             setupScreensaverWatchdog();
             setupHolographicTooltips();
+            renderPatientsTable();
+            populateDiagnosisSelect();
+            updateDashboardStats();
             
             setTimeout(() => {
                 const loader = document.getElementById('startupLoader');
@@ -525,13 +619,151 @@
             }, 3000); 
         });
 
-        // --- RENDER GEJALA UI ---
+        // --- SISTEM CRUD PASIEN & LOG HISTORY ---
+        function updateDashboardStats() {
+            document.getElementById('dash-total-patient').innerText = patientDB.length;
+            let totalRiwayat = 0;
+            patientDB.forEach(p => totalRiwayat += p.riwayat.length);
+            document.getElementById('dash-total-diag').innerText = totalRiwayat;
+        }
+
+        function getFormattedDate(dateStr) {
+            if(!dateStr) return "<span class='text-slate-500 italic text-[9px] md:text-[10px]'>Belum pernah</span>";
+            const d = new Date(dateStr);
+            const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+            const mths = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
+            return `${days[d.getDay()]}, ${d.getDate()} ${mths[d.getMonth()]} ${d.getFullYear()} <span class='text-[9px] md:text-[10px] text-slate-400 block'>Pukul: ${d.getHours().toString().padStart(2,'0')}:${d.getMinutes().toString().padStart(2,'0')} WIB</span>`;
+        }
+
+        function savePatient() {
+            const trackerId = document.getElementById('p-tracker-id').value;
+            let idInput = document.getElementById('p-id').value.trim();
+            const nama = document.getElementById('p-nama').value.trim();
+            const usia = document.getElementById('p-usia').value.trim();
+            const gender = document.getElementById('p-gender').value;
+            const wa = document.getElementById('p-wa').value.trim();
+
+            if(!nama || !usia) { alert("Data Nama dan Usia wajib diisi untuk mendata pasien."); return; }
+
+            if(trackerId) {
+                const index = patientDB.findIndex(p => p.id === trackerId);
+                if (!idInput) idInput = trackerId; 
+                patientDB[index] = { ...patientDB[index], id: idInput, nama, usia, gender, wa };
+            } else {
+                if(!idInput) idInput = 'P-' + Math.floor(Math.random() * 9000 + 1000);
+                if(patientDB.findIndex(p => p.id === idInput) !== -1) { alert("ID Pasien tersebut sudah terdaftar!"); return; }
+                
+                let newPatient = { id: idInput, nama, usia, gender, wa, riwayat: [], lastVisit: "" };
+                patientDB.push(newPatient);
+            }
+
+            localStorage.setItem('SMILE_SYIFA_DB', JSON.stringify(patientDB));
+            
+            // Clear Form
+            document.getElementById('p-tracker-id').value = ''; document.getElementById('p-id').value = '';
+            document.getElementById('p-nama').value = ''; document.getElementById('p-usia').value = ''; document.getElementById('p-wa').value = '';
+            
+            renderPatientsTable();
+            populateDiagnosisSelect();
+            updateDashboardStats();
+            alert("Profil pasien berhasil disimpan!");
+        }
+
+        function renderPatientsTable() {
+            const tbody = document.getElementById('patient-table-body');
+            tbody.innerHTML = '';
+
+            patientDB.forEach(p => {
+                const tr = document.createElement('tr');
+                tr.className = "border-b border-slate-700/50 hover:bg-slate-900 transition-all";
+                
+                let rekamAkhir = p.riwayat.length > 0 ? p.riwayat[p.riwayat.length - 1].penyakit : "Belum ada riwayat";
+                
+                tr.innerHTML = `
+                    <td class="p-2 md:p-3 text-amber-400 font-bold whitespace-nowrap">${p.id}</td>
+                    <td class="p-2 md:p-3 font-black whitespace-nowrap">${p.nama}<br><span class="text-[9px] md:text-[10px] text-emerald-400 font-normal"><i class="fa-brands fa-whatsapp"></i> ${p.wa || '-'}</span></td>
+                    <td class="p-2 md:p-3 whitespace-nowrap">${p.usia} Th / ${p.gender}</td>
+                    <td class="p-2 md:p-3 text-[10px] md:text-xs whitespace-nowrap">${getFormattedDate(p.lastVisit)}</td>
+                    <td class="p-2 md:p-3 text-center whitespace-nowrap space-x-1 md:space-x-2">
+                        <button onclick="editPatient('${p.id}')" class="text-amber-400 hover:text-white px-1" title="Edit Profil"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button onclick="viewHistory('${p.id}')" class="text-cyan-400 hover:text-white px-1" title="Lihat Log Riwayat"><i class="fa-solid fa-file-medical-alt"></i></button>
+                        <button onclick="startDiagnosisFor('${p.id}')" class="text-pink-400 hover:text-white px-1" title="Diagnosis Pasien Ini"><i class="fa-solid fa-stethoscope"></i></button>
+                        <button onclick="deletePatient('${p.id}')" class="text-red-400 hover:text-white px-1" title="Hapus Permanen"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function editPatient(id) {
+            const p = patientDB.find(x => x.id === id);
+            if(p) {
+                document.getElementById('p-tracker-id').value = p.id;
+                document.getElementById('p-id').value = p.id;
+                document.getElementById('p-nama').value = p.nama;
+                document.getElementById('p-usia').value = p.usia;
+                document.getElementById('p-gender').value = p.gender;
+                document.getElementById('p-wa').value = p.wa || "";
+                document.getElementById('tab-pasien').scrollIntoView({behavior: "smooth", block: "start"});
+            }
+        }
+
+        function deletePatient(id) {
+            if(confirm('Hapus profil data pasien dari mesin lokal secara permanen? Seluruh riwayat akan hilang!')) {
+                patientDB = patientDB.filter(x => x.id !== id);
+                localStorage.setItem('SMILE_SYIFA_DB', JSON.stringify(patientDB));
+                renderPatientsTable(); populateDiagnosisSelect(); updateDashboardStats();
+            }
+        }
+
+        function viewHistory(id) {
+            const p = patientDB.find(x => x.id === id);
+            if(p) {
+                document.getElementById('hist-id').innerText = p.id;
+                document.getElementById('hist-nama').innerText = p.nama;
+                const container = document.getElementById('hist-container');
+                container.innerHTML = '';
+                
+                if(p.riwayat.length === 0) {
+                    container.innerHTML = '<p class="text-slate-500 italic text-center mt-6">Belum ada riwayat diagnosis / rekam medis untuk pasien ini.</p>';
+                } else {
+                    p.riwayat.slice().reverse().forEach((r, idx) => {
+                        let cfScore = parseFloat(r.persentase) || 0;
+                        container.innerHTML += `
+                            <div class="bg-slate-900 border border-amber-500/30 p-3 md:p-4 rounded-xl shadow-sm">
+                                <div class="flex justify-between items-start border-b border-slate-700 pb-2 mb-2">
+                                    <span class="text-amber-400 font-bold text-xs"><i class="fa-solid fa-calendar-check mr-1"></i> ${new Date(r.tgl).toLocaleString('id-ID')}</span>
+                                    <span class="bg-pink-500/20 text-pink-400 border border-pink-500 px-2 py-0.5 rounded text-[10px] font-black">CF: ${cfScore}%</span>
+                                </div>
+                                <h4 class="text-cyan-400 font-black text-sm md:text-base uppercase mb-2">${r.penyakit}</h4>
+                                <div class="w-full bg-slate-950 rounded-full h-2 mb-3 overflow-hidden">
+                                    <div class="bg-gradient-to-r from-cyan-500 to-amber-500 h-full rounded-full" style="width: ${cfScore}%;"></div>
+                                </div>
+                                <p class="text-[10px] md:text-xs text-slate-300 leading-relaxed border-l-2 border-emerald-500 pl-2"><b>Solusi:</b> ${r.solusi}</p>
+                            </div>
+                        `;
+                    });
+                }
+                document.getElementById('patientHistoryModal').classList.remove('hidden');
+            }
+        }
+
+        function closePatientHistory() { document.getElementById('patientHistoryModal').classList.add('hidden'); }
+
+        function startDiagnosisFor(id) {
+            const btnCtx = document.querySelectorAll(".nav-btn")[2]; 
+            switchTab('diagnosis', btnCtx);
+            document.getElementById('diag-patient-select').value = id;
+            document.getElementById('tab-diagnosis').scrollIntoView({behavior: "smooth", block: "start"});
+        }
+
+        // --- SISTEM PAKAR (Gejala & Diagnosis) ---
         function renderSymptoms() {
             const container = document.getElementById('symptoms-container');
             container.innerHTML = '';
             symptomsData.forEach(sym => {
                 const div = document.createElement('div');
-                div.className = "flex items-start gap-3 bg-slate-950 p-3 rounded-lg border border-slate-700 hover:border-cyan-500 transition-colors cursor-pointer";
+                div.className = "flex items-start gap-3 bg-slate-950 p-3 rounded-lg border border-slate-700 hover:border-pink-500 transition-colors cursor-pointer";
                 div.innerHTML = `
                     <input type="checkbox" id="chk-${sym.id}" value="${sym.id}" class="mt-0.5">
                     <label for="chk-${sym.id}" class="text-slate-300 cursor-pointer flex-1 line-clamp-2 select-none">${sym.text}</label>
@@ -546,24 +778,24 @@
             });
         }
 
-        // --- SISTEM PAKAR FORWARD CHAINING LOGIC ---
+        function populateDiagnosisSelect() {
+            const select = document.getElementById('diag-patient-select');
+            select.innerHTML = '<option value="">-- TANPA SIMPAN PASIEN (GUEST) --</option>';
+            patientDB.forEach(p => { 
+                select.innerHTML += `<option value="${p.id}">${p.id} - ${p.nama}</option>`; 
+            });
+        }
+
         function processDiagnosis() {
             const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
             const selectedSymptoms = Array.from(checkedBoxes).map(cb => cb.value);
             
-            if(selectedSymptoms.length === 0) {
-                alert("Harap pilih minimal satu gejala untuk diproses!");
-                return;
-            }
+            if(selectedSymptoms.length === 0) { alert("Harap centang minimal satu gejala klinis untuk diproses!"); return; }
 
             let results = [];
-
             diseasesData.forEach(disease => {
                 let matchCount = 0;
-                disease.symptoms.forEach(sym => {
-                    if(selectedSymptoms.includes(sym)) matchCount++;
-                });
-                
+                disease.symptoms.forEach(sym => { if(selectedSymptoms.includes(sym)) matchCount++; });
                 if(matchCount > 0) {
                     let certainty = (matchCount / disease.symptoms.length) * 100;
                     results.push({ ...disease, certainty: certainty.toFixed(1) });
@@ -571,6 +803,13 @@
             });
 
             results.sort((a, b) => b.certainty - a.certainty);
+            
+            if(results.length > 0 && results[0].certainty >= 30) {
+                currentDiagnosisResult = results[0]; // Simpan hasil top 1 ke memori sementara untuk disave nanti
+            } else {
+                currentDiagnosisResult = null;
+            }
+            
             displayResults(results);
         }
 
@@ -579,21 +818,29 @@
             const output = document.getElementById('diagnosis-output');
             output.innerHTML = '';
 
+            let selectPId = document.getElementById('diag-patient-select').value;
+            let patientNameDisplay = "Anonim / Pasien Guest";
+            if(selectPId) {
+                let p = patientDB.find(x => x.id === selectPId);
+                if(p) patientNameDisplay = `${p.id} - ${p.nama}`;
+            }
+
             if(results.length === 0 || results[0].certainty < 30) {
                 output.innerHTML = `
-                    <div class="bg-amber-950/50 border-l-4 border-amber-500 p-4 rounded">
+                    <div class="bg-amber-950/50 border-l-4 border-amber-500 p-4 rounded mb-4">
+                        <p class="text-xs text-amber-400 font-bold mb-2">Pasiensi: ${patientNameDisplay}</p>
                         <h3 class="text-amber-400 font-bold mb-1"><i class="fa-solid fa-triangle-exclamation"></i> Gejala Tidak Spesifik</h3>
-                        <p class="text-sm">Gejala yang Anda masukkan tidak cukup spesifik untuk merujuk pada satu penyakit gigi tertentu dalam basis pengetahuan kami. Sangat disarankan untuk memeriksakan diri langsung ke dokter gigi.</p>
+                        <p class="text-sm">Gejala yang Anda masukkan tidak cukup spesifik untuk merujuk pada satu penyakit gigi tertentu dalam basis pengetahuan kami. Sangat disarankan untuk memeriksakan diri ke dokter gigi langsung.</p>
                     </div>`;
             } else {
                 let topResult = results[0];
                 let html = `
+                    <div class="mb-3 px-1 text-sm md:text-base font-bold text-slate-300">Target Pasien: <span class="text-pink-400">${patientNameDisplay}</span></div>
                     <div class="bg-slate-900 border border-cyan-500/50 rounded-xl p-4 md:p-5 relative overflow-hidden">
                         <div class="absolute -right-4 -top-4 opacity-10"><i class="fa-solid fa-tooth text-8xl text-cyan-500"></i></div>
-                        <span class="text-cyan-400 text-[10px] md:text-xs font-black tracking-widest uppercase border-b border-slate-700 pb-1 mb-2 block">DIAGNOSIS UTAMA</span>
+                        <span class="text-cyan-400 text-[10px] md:text-xs font-black tracking-widest uppercase border-b border-slate-700 pb-1 mb-2 block">DIAGNOSIS UTAMA (SYSTEM PAKAR)</span>
                         <h3 class="text-xl md:text-3xl font-tech font-black text-white mb-2 drop-shadow-md">${topResult.name}</h3>
                         
-                        <!-- Animasi Grafik Hasil Diagnosis -->
                         <div class="w-full bg-slate-950 rounded-full h-4 md:h-5 mb-4 overflow-hidden border-2 border-slate-700 relative shadow-inner">
                             <div class="bg-gradient-to-r from-cyan-500 to-pink-500 h-full rounded-full animate-grow flex items-center justify-end pr-2" style="width: ${topResult.certainty}%;">
                                 <span class="text-[9px] md:text-[10px] font-black text-white drop-shadow-md">${topResult.certainty}%</span>
@@ -612,29 +859,72 @@
                         </div>
                     </div>
                 `;
-
-                if(results.length > 1 && results[1].certainty > 40) {
-                    html += `
-                        <div class="mt-4 bg-slate-900 border border-slate-700 rounded-xl p-3 md:p-4">
-                            <span class="text-slate-400 text-[10px] md:text-xs font-black tracking-widest uppercase mb-2 block">KEMUNGKINAN LAIN:</span>
-                            <div class="flex justify-between items-center bg-slate-950 p-2 rounded border border-slate-800 mb-2">
-                                <span class="font-bold text-slate-300">${results[1].name}</span>
-                            </div>
-                            <div class="w-full bg-slate-800 rounded-full h-2 mb-1 overflow-hidden">
-                                <div class="bg-cyan-600 h-full rounded-full animate-grow" style="width: ${results[1].certainty}%;"></div>
-                            </div>
-                        </div>
-                    `;
-                }
                 output.innerHTML = html;
             }
 
             modal.classList.remove('hidden');
         }
 
-        function closeResult() {
-            document.getElementById('resultModal').classList.add('hidden');
+        // Logika Menyimpan Log dan Kirim ke WA
+        function saveDiagnosisAndSendWA() {
+            if(!currentDiagnosisResult) {
+                alert("Hasil diagnosis tidak valid untuk disimpan."); return;
+            }
+
+            let selectPId = document.getElementById('diag-patient-select').value;
+            if(!selectPId) {
+                alert("Anda belum memilih Profil Pasien Target! Harap tutup popup ini, pilih nama pasien di kotak paling atas tab Diagnosis, lalu proses kembali."); 
+                return;
+            }
+
+            let pIndex = patientDB.findIndex(x => x.id === selectPId);
+            if(pIndex === -1) return;
+
+            let nowISO = new Date().toISOString();
+            
+            // Simpan ke log riwayat pasien
+            patientDB[pIndex].lastVisit = nowISO;
+            patientDB[pIndex].riwayat.push({
+                tgl: nowISO,
+                penyakit: currentDiagnosisResult.name,
+                persentase: currentDiagnosisResult.certainty,
+                solusi: currentDiagnosisResult.solusi
+            });
+            
+            localStorage.setItem('SMILE_SYIFA_DB', JSON.stringify(patientDB));
+            
+            // Perbarui UI background (Tabel & Statistik)
+            renderPatientsTable();
+            updateDashboardStats();
+
+            // Export ke WhatsApp
+            let waInput = patientDB[pIndex].wa;
+            if (!waInput || waInput.trim() === "") {
+                alert("Profil pasien tersimpan di riwayat! Namun nomor WhatsApp pasien ini kosong, sehingga pesan tidak akan terarah ke kontak tertentu.");
+                waInput = "";
+            } else {
+                waInput = waInput.replace(/[^0-9]/g, '');
+                if (waInput.startsWith('0')) { waInput = '62' + waInput.substring(1); }
+            }
+
+            let waText = `*SMILE SYIFA AI : HASIL DIAGNOSIS PAKAR GIGI*\n\n`;
+            waText += `*ID Pasien:* ${patientDB[pIndex].id}\n`;
+            waText += `*Nama:* ${patientDB[pIndex].nama}\n`;
+            waText += `*Tgl Analisis:* ${new Date().toLocaleString('id-ID')}\n\n`;
+            waText += `*DIAGNOSIS SISTEM:*\n${currentDiagnosisResult.name} (Tingkat Keyakinan: ${currentDiagnosisResult.certainty}%)\n\n`;
+            waText += `*SOLUSI MEDIS:*\n${currentDiagnosisResult.solusi}\n\n`;
+            waText += `_Harap jadikan ini referensi awal, segera periksakan diri Anda ke dokter gigi untuk penanganan pasti._`;
+
+            let waUrl = waInput ? `https://wa.me/${waInput}?text=${encodeURIComponent(waText)}` : `https://wa.me/?text=${encodeURIComponent(waText)}`;
+            
+            // Hapus form checked agar fresh
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach(c => c.checked = false);
+            
+            closeResult();
+            window.open(waUrl, '_blank');
         }
+
+        function closeResult() { document.getElementById('resultModal').classList.add('hidden'); }
 
         // --- HELP SYSTEM & METRIK PAKAR MODAL ---
         function openHelpModal() {
@@ -643,9 +933,8 @@
             tbody.innerHTML = '';
             
             diseasesData.forEach((d, index) => {
-                // Memberikan persentase base probabilitas buatan khusus tampilan UI grafik
                 let baseMetric = Math.floor(Math.random() * 40) + 50; 
-                let delay = index * 0.2; // untuk efek cascade animasi grafik
+                let delay = index * 0.2; 
                 
                 tbody.innerHTML += `
                     <tr class="border-b border-slate-700/50 hover:bg-slate-900 transition-all">
@@ -664,13 +953,10 @@
                     </tr>
                 `;
             });
-            
             modal.classList.remove('hidden');
         }
 
-        function closeHelpModal() {
-            document.getElementById('helpSystemModal').classList.add('hidden');
-        }
+        function closeHelpModal() { document.getElementById('helpSystemModal').classList.add('hidden'); }
 
         // --- CHATBOT UI (DentBot) ---
         function toggleChatWindow() { 
@@ -793,11 +1079,9 @@
                 const dayStr = `${dayArr[current.getDay()]}, ${current.getDate()} ${monthArr[current.getMonth()]} ${current.getFullYear()}`;
                 const timeStr = current.toTimeString().split(' ')[0];
                 
-                // Dashboard Time
                 document.getElementById('lbl-real-day').innerText = dayStr;
                 document.getElementById('lbl-real-clock').innerText = timeStr;
                 
-                // Bot Interface Large Time
                 document.getElementById('bot-large-time').innerText = timeStr;
                 document.getElementById('bot-large-day').innerText = dayStr;
                 
@@ -832,7 +1116,6 @@
             setTimeout(() => { scNode.classList.remove("opacity-0"); scNode.classList.add("opacity-100"); }, 50);
         }
 
-        // --- Drag Modal (Kridit Modal) ---
         const panel = document.getElementById("draggablePanel");
         const handle = document.getElementById("dragHandle");
         let isDragging = false, startX, startY, initX, initY;
